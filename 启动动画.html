@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumenX OS Boot Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .brand-container {
+            display: flex;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .lumenx-text {
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1;
+            position: relative;
+        }
+        
+        .letter-o {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .underline-animation {
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #ff2d55, #ff9500, #ffcc00, #34c759, #5ac8fa, #007aff, #5856d6);
+            background-size: 700% 100%;
+            animation: gradientMove 3s linear infinite;
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+        
+        .loader-container {
+            width: 200px;
+            height: 60px;
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .loader {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            animation: rotate 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: translateX(-50%) rotate(0deg) scale(0.2);
+                border-radius: 10%;
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateX(-50%) rotate(180deg) scale(1.5);
+                border-radius: 50%;
+                opacity: 1;
+                background: #3a86ff;
+            }
+            100% {
+                transform: translateX(-50%) rotate(360deg) scale(0.2);
+                border-radius: 10%;
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .powered-by {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-top: auto;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .progress-container {
+            width: 300px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-top: auto;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #3a86ff, #4cc9f0);
+            animation: progress 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes progress {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="brand-container">
+            <div class="lumenx-text">
+                <span>L</span>
+                <span>U</span>
+                <span>M</span>
+                <span>E</span>
+                <span>N</span>
+                <span>X</span>
+                <span class="letter-o">O
+                    <div class="underline-animation"></div>
+                </span>
+                <span>S</span>
+            </div>
+        </div>
+        
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="powered-by">Powered by Linux</div>
+    </div>
+</body>
+</html>
